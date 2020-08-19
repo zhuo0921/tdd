@@ -1,7 +1,5 @@
 # TDD @Gilded Rose
 
-![Build](https://github.com/xpbootcamp/tdd-gilded-rose/workflows/Build/badge.svg)
-
 ## 开发环境
  - JDK1.8+
  
@@ -35,22 +33,27 @@
 - updatedQuality: 经过n (sellIn - updatedSellIn) 天后, 商品的最新价值
 
 #### 普通商品
-sellIn, quality, updatedSellIn, updatedQuality
-10, 20, 9, 19
-2, 0, 1, 0
-3, 6, 2, 5
-0, 6, -1, 4
--1, 6, -2, 4
+
+| sellIn | quality | updatedSellIn | updatedQuality |
+| ------ | ------- | ------------- | -------------- |
+| 10     | 20      | 9             | 19             |
+| 2      | 0       | 1             | 0              |
+| 3      | 6       | 2             | 5              |
+| 0      | 6       | -1            | 4              |
+| -1     | 6       | -2            | 4              |
 
 #### 后台门票
-sellIn, quality, updatedSellIn, updatedQuality
-15, 20, 14, 21
-10, 45, 9, 47
-9, 45, 8, 47
-10, 49, 9, 50
-10, 50, 9, 50
-5, 49, 4, 50
-5, 45, 4, 48
-1, 20, 0, 23
-0, 20, -1, 0
+
+| sellIn | quality | updatedSellIn | updatedQuality |
+| ------ | ------- | ------------- | -------------- |
+| 15     | 20      | 14            | 21             |
+| 10     | 45      | 9             | 47             |
+| 9      | 45      | 8             | 47             |
+| 10     | 49      | 9             | 50             |
+| 10     | 50      | 9             | 50             |
+| 5      | 49      | 4             | 50             |
+| 5      | 45      | 4             | 48             |
+| 1      | 20      | 0             | 23             |
+| 0      | 20      | -1            | 0              |
+
 

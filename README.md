@@ -26,5 +26,31 @@
 	- 演出前5天，价值每天上升3点
 	- 一旦过了演出日，价值就马上变成0
 
+### 验收数据
+下面的数据用来验收你的代码是否满足客户的期望
 
+- sellIn：商品距离过期的天数，最好这么多天之内卖完
+- quality：商品当前的价值
+- updatedSellIn：经过n (sellIn - updatedSellIn) 天后，距离商品过期的天数
+- updatedQuality: 经过n (sellIn - updatedSellIn) 天后, 商品的最新价值
+
+#### 普通商品
+sellIn, quality, updatedSellIn, updatedQuality
+10, 20, 9, 19
+2, 0, 1, 0
+3, 6, 2, 5
+0, 6, -1, 4
+-1, 6, -2, 4
+
+#### 后台门票
+sellIn, quality, updatedSellIn, updatedQuality
+15, 20, 14, 21
+10, 45, 9, 47
+9, 45, 8, 47
+10, 49, 9, 50
+10, 50, 9, 50
+5, 49, 4, 50
+5, 45, 4, 48
+1, 20, 0, 23
+0, 20, -1, 0
 

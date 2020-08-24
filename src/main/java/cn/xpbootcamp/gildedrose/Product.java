@@ -30,6 +30,7 @@ public class Product {
         else {
             quality = quality - 1;
         }
+        sellIn = sellIn - 1;
 
     }
 

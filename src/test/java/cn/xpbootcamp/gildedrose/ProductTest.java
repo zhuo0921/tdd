@@ -27,4 +27,12 @@ public class ProductTest {
         int newQuality = product.getQuality();
         Assert.assertEquals(40, newQuality);
     }
+
+    @Test
+    public void should_decrease_1_when_sellIn_given_sellIn() {
+        Product product = new Product(41, 41);
+        product.calculateCommonProduct();
+        int newQuality = product.getSellIn();
+        Assert.assertEquals(40, newQuality);
+    }
 }

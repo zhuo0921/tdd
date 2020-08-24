@@ -44,4 +44,24 @@ public class ProductTest {
         Assert.assertEquals(40, newSellIn);
     }
 
+    @Test
+    public void should_increase_1_when_type_is_backStage_and_sellIn_more_than_10() {
+        Product product = new Product(11, 41, "BackstagePass");
+        product.calculateProduct();
+        int newQuality = product.getQuality();
+        int newSellIn = product.getSellIn();
+        Assert.assertEquals(42, newQuality);
+        Assert.assertEquals(10, newSellIn);
+    }
+
+    @Test
+    public void should_increase_2_when_type_is_backStage_and_sellIn_between_5_and_10() {
+        Product product = new Product(6, 41, "BackstagePass");
+        product.calculateProduct();
+        int newQuality = product.getQuality();
+        int newSellIn = product.getSellIn();
+        Assert.assertEquals(43, newQuality);
+        Assert.assertEquals(5, newSellIn);
+    }
+
 }

@@ -24,21 +24,38 @@ public class Product {
     }
 
     public void calculateProduct() {
-        if (quality <=  0) {
+        if (quality <= 0) {
             quality = 0;
         }
         else if (quality > 50) {
             quality = 50;
         }
         else {
-            if (sellIn < 0) {
-                quality = quality - 2;
-            }
+            if (type.equals(COMMON_PRODUCT))
+            calculateCommonProductQuality();
             else {
-                quality = quality - 1;
+                calculateBackStageProductQuality();
             }
         }
         sellIn = sellIn - 1;
+    }
+
+    private void calculateBackStageProductQuality() {
+        if (sellIn > 10) {
+            quality = quality + 1;
+        }
+        else if (sellIn >= 5 ) {
+            quality = quality + 2;
+        }
+    }
+
+    private void calculateCommonProductQuality() {
+        if (sellIn < 0) {
+            quality = quality - 2;
+        }
+        else {
+            quality = quality - 1;
+        }
     }
 
 }

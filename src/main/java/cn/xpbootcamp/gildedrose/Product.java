@@ -16,6 +16,12 @@ public class Product {
         if (sellIn < 0) {
             sellIn = 0;
         }
+        if (sellIn > 50) {
+            sellIn = 50;
+        }
+        else {
+            sellIn = sellIn - 1;
+        }
     }
 
 }

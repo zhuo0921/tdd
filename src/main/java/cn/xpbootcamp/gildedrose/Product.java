@@ -8,7 +8,7 @@ public class Product {
 
     private static final String BACKSTAGE_PASS_PRODUCT = "BackstagePass";
 
-    private static final String COMMON_PRODUCT = "Regular";
+    private static final String COMMON_PRODUCT = "Common";
 
     public int getSellIn() {
         return sellIn;
@@ -24,18 +24,17 @@ public class Product {
     }
 
     public void calculateProduct() {
+
+        if (type.equals(COMMON_PRODUCT))
+            calculateCommonProductQuality();
+        else if (type.equals(BACKSTAGE_PASS_PRODUCT)){
+            calculateBackStageProductQuality();
+        }
         if (quality <= 0) {
             quality = 0;
         }
         else if (quality > 50) {
             quality = 50;
-        }
-        else {
-            if (type.equals(COMMON_PRODUCT))
-            calculateCommonProductQuality();
-            else {
-                calculateBackStageProductQuality();
-            }
         }
         sellIn = sellIn - 1;
     }
@@ -46,6 +45,9 @@ public class Product {
         }
         else if (sellIn >= 5 ) {
             quality = quality + 2;
+        }
+        else if (sellIn > 0) {
+            quality = quality + 3;
         }
     }
 

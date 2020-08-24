@@ -6,7 +6,7 @@ import org.junit.Test;
 public class ProductTest {
     @Test
     public void should_return_zero_when_quality_less_than_zero() {
-        Product product = new Product(0, 0, "Regular");
+        Product product = new Product(0, 0, "Common");
         product.calculateProduct();
         int newQuality = product.getQuality();
         int newSellIn = product.getSellIn();
@@ -16,7 +16,7 @@ public class ProductTest {
 
     @Test
     public void should_return_50_when_quality_more_than_50() {
-        Product product = new Product(60, 60, "Regular");
+        Product product = new Product(60, 60, "Common");
         product.calculateProduct();
         int newQuality = product.getQuality();
         int newSellIn = product.getSellIn();
@@ -26,7 +26,7 @@ public class ProductTest {
 
     @Test
     public void should_decrease_1_when_quality_is_between_0_and_50() {
-        Product product = new Product(-1, 6, "Regular");
+        Product product = new Product(-1, 6, "Common");
         product.calculateProduct();
         int newQuality = product.getQuality();
         int newSellIn = product.getSellIn();
@@ -36,7 +36,7 @@ public class ProductTest {
 
     @Test
     public void should_decrease_1_when_given_sellIn() {
-        Product product = new Product(41, 41, "Regular");
+        Product product = new Product(41, 41, "Common");
         product.calculateProduct();
         int newQuality = product.getQuality();
         int newSellIn = product.getSellIn();
@@ -62,6 +62,26 @@ public class ProductTest {
         int newSellIn = product.getSellIn();
         Assert.assertEquals(43, newQuality);
         Assert.assertEquals(5, newSellIn);
+    }
+
+    @Test
+    public void should_increase_3_when_type_is_backStage_and_sellIn_less_than_5() {
+        Product product = new Product(4, 40, "BackstagePass");
+        product.calculateProduct();
+        int newQuality = product.getQuality();
+        int newSellIn = product.getSellIn();
+        Assert.assertEquals(43, newQuality);
+        Assert.assertEquals(3, newSellIn);
+    }
+
+    @Test
+    public void should_increase_3_when_type_is_backStage_and_sellIn_less_than_5_and_new_quality_more_than_50() {
+        Product product = new Product(10, 49, "BackstagePass");
+        product.calculateProduct();
+        int newQuality = product.getQuality();
+        int newSellIn = product.getSellIn();
+        Assert.assertEquals(50, newQuality);
+        Assert.assertEquals(9, newSellIn);
     }
 
 }

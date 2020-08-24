@@ -10,6 +10,9 @@ public class Product {
 
     private static final String COMMON_PRODUCT = "Common";
 
+    private static final int MIN = 0;
+    private static final int MAX = 50;
+
     public int getSellIn() {
         return sellIn;
     }
@@ -30,33 +33,42 @@ public class Product {
         else if (type.equals(BACKSTAGE_PASS_PRODUCT)){
             calculateBackStageProductQuality();
         }
-        if (quality <= 0) {
-            quality = 0;
+        if (quality <= MIN) {
+            quality = MIN;
         }
-        else if (quality > 50) {
-            quality = 50;
+        else if (quality > MAX) {
+            quality = MAX;
         }
         sellIn = sellIn - 1;
     }
 
     private void calculateBackStageProductQuality() {
         if (sellIn > 10) {
-            quality = quality + 1;
+            getNewQuality(1, true);
         }
         else if (sellIn >= 5 ) {
-            quality = quality + 2;
+            getNewQuality(2, true);
         }
         else if (sellIn > 0) {
-            quality = quality + 3;
+            getNewQuality(3, true);
+        }
+    }
+
+    private void getNewQuality(int i, boolean isIncrease) {
+        if (isIncrease) {
+            quality = quality + i;
+        }
+        else {
+            quality = quality - i;
         }
     }
 
     private void calculateCommonProductQuality() {
         if (sellIn < 0) {
-            quality = quality - 2;
+            getNewQuality(2, false);
         }
         else {
-            quality = quality - 1;
+            getNewQuality(1, false);
         }
     }
 
